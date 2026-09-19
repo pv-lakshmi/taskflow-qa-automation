@@ -33,3 +33,5 @@ The developer-owned integration tests exercise the Task CRUD API, validation, pe
 The project direction and QA handoff are tracked in [PROGRESS.md](PROGRESS.md), [ARCHITECTURE.md](ARCHITECTURE.md), [DECISIONS.md](DECISIONS.md), and [QA_AUTOMATION_PLAN.md](QA_AUTOMATION_PLAN.md).
 
 The QA Agent workflow is documented in [qa/README.md](qa/README.md). Its first requirement input is [qa/requirements/SCRUM-6.json](qa/requirements/SCRUM-6.json), and the generated proposal is [qa/scenarios/SCRUM-6.json](qa/scenarios/SCRUM-6.json).
+
+The operational workflow is documented in [RUNBOOK.md](RUNBOOK.md), Jira setup is in [JIRA_INTEGRATION.md](JIRA_INTEGRATION.md), and CI is defined in [.github/workflows/qa.yml](.github/workflows/qa.yml). Playwright API tests run with `TASKFLOW_BASE_URL=http://127.0.0.1:8081 npm run test:qa` when an older local server occupies port 8080.

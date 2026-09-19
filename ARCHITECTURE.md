@@ -58,6 +58,18 @@ qa/requirements/*.json
 - `qa/agents/generate_scenarios.py` provides a credential-free deterministic fallback for local validation and demonstrations.
 - `qa/agents/qa-agent.md` is the model-backed instruction boundary; generated scenarios remain `needs-review` until approved.
 
+## Automation and operations
+
+Playwright uses its API request layer against the REST API because the current
+application has no UI. Approved scenario IDs are included in test titles and
+reports. Result analysis writes a machine-readable classification artifact, and
+the Jira adapter consumes that evidence in dry-run or explicitly enabled live
+mode.
+
+GitHub Actions runs developer tests, then QA smoke/API coverage, and uploads
+reports. Pull requests receive fast feedback; pushes and scheduled runs provide
+broader regression evidence.
+
 ## Planned integration points
 
 - Jira story input and defect-ready output.

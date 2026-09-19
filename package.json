@@ -1,0 +1,20 @@
+{
+  "name": "taskflow-qa-automation",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Playwright API automation and QA lifecycle tooling for TaskFlow",
+  "scripts": {
+    "qa:generate": "python3 qa/agents/generate_scenarios.py --input qa/requirements/SCRUM-6.json --output qa/scenarios/SCRUM-6.json",
+    "qa:approve": "python3 qa/agents/approve_scenarios.py --input qa/scenarios/SCRUM-6.json --output qa/scenarios/approved/SCRUM-6.json --reviewed-by local-review",
+    "test:qa": "playwright test",
+    "test:qa:smoke": "playwright test --grep @smoke",
+    "test:qa:validation": "playwright test --grep @validation",
+    "qa:analyze": "node qa/agents/analyze-results.js",
+    "qa:jira:read": "node qa/integrations/jira.js read",
+    "qa:jira:publish": "node qa/integrations/jira.js publish",
+    "qa:jira:bug": "node qa/integrations/jira.js bug"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.39.0"
+  }
+}

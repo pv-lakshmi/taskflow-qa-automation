@@ -7,3 +7,9 @@
 
 # Maven
 target/
+
+# Node and QA reports
+node_modules/
+qa/reports/*
+!qa/reports/.gitkeep
+qa/agents/__pycache__/

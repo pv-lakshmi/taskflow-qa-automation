@@ -49,3 +49,19 @@
 **Reason:** The workflow remains demonstrable and testable in local and CI environments without secrets, network access, or a provider-specific API.
 
 **Constraint:** The fallback is a contract/demo implementation, not a substitute for semantic review. Its output remains `needs-review`.
+
+## 2026-09-19: Use Playwright API testing before UI testing
+
+**Decision:** Use Playwright `APIRequestContext` for the first executable QA suite.
+
+**Reason:** TaskFlow currently exposes a REST API and has no UI. Playwright still provides tags, retries, parallel execution, JSON/HTML reports, and a straightforward path to browser tests if a UI is introduced later.
+
+**Alternative considered:** Add a Java API framework immediately. Deferred because the QA workflow is already JSON/Node-oriented and Playwright provides one automation stack for future API and UI coverage.
+
+## 2026-09-19: Use Jira REST with safe dry-run defaults
+
+**Decision:** Integrate Jira through its REST API using `JIRA_BASE_URL`, `JIRA_EMAIL`, and `JIRA_API_TOKEN`; keep publish and bug creation in dry-run mode by default.
+
+**Reason:** REST works in local scripts and GitHub Actions, while environment variables and explicit live mode prevent credential commits and accidental issue changes.
+
+**Alternative considered:** Require an editor MCP connection. Rejected as the primary path because CI and recruiters need a reproducible repository workflow independent of a local editor session.

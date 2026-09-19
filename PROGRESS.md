@@ -2,7 +2,7 @@
 
 ## Current phase
 
-Phase D: Automation Agent design and implementation.
+Portfolio demo and lifecycle hardening.
 
 ## Completed
 
@@ -17,6 +17,12 @@ Phase D: Automation Agent design and implementation.
 - Added versioned JSON requirement and scenario contracts.
 - Added the `SCRUM-6` Jira-style requirement fixture and generated scenario set.
 - Added model-backed QA Agent instructions plus a credential-free local generator and validator.
+- Phase D: Added Playwright API automation using approved JSON scenarios.
+- Phase E: Added JSON/HTML reporting and failure analysis.
+- Phase F: Added failure classification and Jira-ready bug payload generation.
+- Phase G: Added changed-file regression selection.
+- Phase H: Added GitHub Actions for PR, main, manual, and scheduled execution.
+- Phase I: Added Jira REST read, publish, and bug commands with dry-run default.
 
 ## Application baseline: COMPLETE
 
@@ -36,11 +42,16 @@ From this point onward, treat TaskFlow as an inherited application. The primary 
 - `qa/agents/qa-agent.md`: QA Agent generation and review instructions.
 - `qa/agents/generate_scenarios.py`: offline scenario generator and validator.
 - `qa/scenarios/SCRUM-6.json`: generated, traceable scenario proposal.
+- `qa/automation/api/tasks.spec.js`: Playwright API automation.
+- `qa/agents/analyze-results.js`: result classification.
+- `qa/integrations/jira.js`: Jira REST adapter.
+- `.github/workflows/qa.yml`: CI orchestration.
 
 ## Blockers
 
-None for Phase C. Generated scenarios require human review before automation.
+No implementation blockers. Live Jira operations require user-provided environment variables and remain disabled by default.
 
 ## Next major action
 
-Select the API automation approach, map approved scenario metadata to executable tests, and add reusable test helpers without duplicating developer coverage.
+Use the generated workflow as the portfolio demo, add more Jira requirements,
+and extend the approved scenario-to-Playwright mapping as the system grows.

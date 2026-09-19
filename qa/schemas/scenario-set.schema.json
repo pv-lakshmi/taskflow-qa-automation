@@ -12,7 +12,8 @@
       "required": ["status", "notes"],
       "properties": {
         "status": { "enum": ["generated", "needs-review", "approved", "rejected"] },
-        "notes": { "type": "array", "items": { "type": "string" } }
+        "notes": { "type": "array", "items": { "type": "string" } },
+        "reviewedBy": { "type": "string", "minLength": 1 }
       },
       "additionalProperties": false
     },
