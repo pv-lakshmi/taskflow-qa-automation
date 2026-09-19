@@ -2,7 +2,7 @@
 
 ## Current phase
 
-Phase B: QA onboarding and repository analysis.
+Phase C: QA Agent design and implementation.
 
 ## Completed
 
@@ -11,6 +11,8 @@ Phase B: QA onboarding and repository analysis.
 - Added request validation and consistent 400/404 JSON errors.
 - Added developer-owned MockMvc integration coverage.
 - Added basic run and API documentation.
+- Phase B: QA onboarding and repository analysis.
+- Documented application/test inventory, testable interfaces, coverage gaps, requirement questions, test categories, and ownership boundaries.
 
 ## Application baseline: COMPLETE
 
@@ -26,11 +28,12 @@ From this point onward, treat TaskFlow as an inherited application. The primary 
 - `src/main/java/com/taskflow/service/TaskService.java`: task behavior and persistence boundary.
 - `src/test/java/com/taskflow/TaskflowApplicationTests.java`: existing developer-owned API tests.
 - `README.md`: local run and API reference.
+- `TEST_STRATEGY.md`: Phase B repository analysis and coverage strategy.
 
 ## Blockers
 
-None for the application baseline.
+None for Phase B.
 
 ## Next major action
 
-Analyze the inherited repository and existing test gaps, then define the requirement-to-scenario contract for the QA Agent.
+Define a versioned JSON scenario schema and create the first Jira-style requirement/scenario artifacts for the QA Agent.

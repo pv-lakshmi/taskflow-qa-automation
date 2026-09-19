@@ -19,3 +19,17 @@
 **Decision:** Treat `src/test` as existing developer-owned coverage and reserve a separate `qa/` structure for generated scenarios, automation, reports, and agent assets.
 
 **Reason:** The project is intended to model a QA engineer onboarding to an existing application. Separation preserves ownership and makes generated assets reviewable.
+
+## 2026-09-18: Use the REST API as the first QA automation boundary
+
+**Decision:** Begin QA onboarding and automation with the `/tasks` HTTP contract; defer UI automation because the repository has no UI.
+
+**Reason:** The API is the only user-facing interface, is independently executable, and supports deterministic status, payload, header, and state assertions.
+
+**Alternative considered:** Add browser automation immediately. Deferred because it would introduce a test surface that does not exist in the system under test.
+
+## 2026-09-18: Record requirement ambiguity instead of inventing behavior
+
+**Decision:** Track duplicate-title, ordering, null-description, malformed-request, and security questions as open requirement questions.
+
+**Reason:** Generated tests must preserve traceability and should not convert undocumented assumptions into product contracts.

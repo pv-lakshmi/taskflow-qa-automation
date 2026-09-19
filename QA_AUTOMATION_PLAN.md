@@ -7,10 +7,11 @@ Start with the TaskFlow REST API. UI automation is deferred until a UI exists.
 ## Test layers
 
 - Existing developer tests: fast Spring integration coverage in `src/test`.
-- QA smoke: create, list, get, update, and delete happy paths.
-- QA validation: blank or missing titles and malformed requests.
-- QA negative: missing resources and unsupported behavior.
-- QA regression: approved scenarios covering changed API behavior.
+- QA smoke: create, list, get, update, and delete happy paths (`smoke`).
+- QA validation: blank, missing, null, and malformed request values (`validation`).
+- QA negative: missing resources and unsupported behavior (`negative`).
+- QA API contract: status, headers, JSON fields, and persistence assertions (`api`).
+- QA regression: approved scenarios covering changed API behavior (`regression`).
 
 ## Scenario metadata
 
@@ -18,7 +19,9 @@ Each generated scenario should carry a stable scenario ID, Jira requirement refe
 
 ## Execution strategy
 
-Selective smoke and API checks should provide fast pull-request feedback. Broader regression should run after merges and on a schedule once suite cost and stability are measured. Deployment checks should verify environment health and critical API paths.
+Selective smoke, validation, and negative checks should provide fast pull-request feedback. Broader API regression should run after merges and on a schedule once suite cost and stability are measured. Deployment checks should verify environment health and critical API paths. Destructive tests require an isolated or resettable environment.
+
+The repository analysis and identified gaps are recorded in `TEST_STRATEGY.md`.
 
 ## Failure handling
 
@@ -30,4 +33,4 @@ The application team owns production behavior and fixes. QA automation owns scen
 
 ## Next design step
 
-Complete repository analysis, identify coverage gaps, and define a versioned JSON scenario schema before implementing the QA Agent.
+Define a versioned JSON scenario schema and create a representative Jira-style requirement input before implementing the QA Agent.
