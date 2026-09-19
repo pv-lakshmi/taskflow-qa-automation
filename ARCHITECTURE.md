@@ -43,6 +43,21 @@ Jira story or supplied requirement
 
 QA artifacts will live outside application code and developer tests, with scenario IDs linking requirements to automation and execution results.
 
+## Phase C QA Agent boundary
+
+```text
+qa/requirements/*.json
+    -> QA Agent instructions or offline generator
+        -> qa/scenarios/*.json
+            -> human/Test Review Agent
+                -> Phase D automation assets
+```
+
+- Requirement inputs follow `qa/schemas/requirement.schema.json`.
+- Scenario proposals follow `qa/schemas/scenario-set.schema.json`.
+- `qa/agents/generate_scenarios.py` provides a credential-free deterministic fallback for local validation and demonstrations.
+- `qa/agents/qa-agent.md` is the model-backed instruction boundary; generated scenarios remain `needs-review` until approved.
+
 ## Planned integration points
 
 - Jira story input and defect-ready output.

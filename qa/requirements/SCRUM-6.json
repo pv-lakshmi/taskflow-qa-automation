@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "requirementId": "SCRUM-6",
+  "title": "Create a new task",
+  "description": "As a user, I want to create a task with a title and optional description so that work can be tracked.",
+  "acceptanceCriteria": [
+    "A task can be created with a nonblank title and optional description.",
+    "The API generates a unique task ID and persists the task.",
+    "A successful create returns HTTP 201 and a Location header for the task.",
+    "A blank or missing title is rejected with HTTP 400 and useful validation details.",
+    "A created task can be retrieved with GET /tasks/{id}."
+  ],
+  "applicationContext": {
+    "baseUrl": "http://localhost:8080",
+    "interfaces": ["POST /tasks", "GET /tasks/{id}"],
+    "knownConstraints": ["title is required and must not be blank", "description is optional", "H2 is disposable in local tests"]
+  }
+}

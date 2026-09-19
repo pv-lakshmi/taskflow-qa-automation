@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://taskflow.example/schemas/requirement.schema.json",
+  "title": "QA Agent Requirement Input",
+  "type": "object",
+  "required": ["schemaVersion", "requirementId", "title", "description", "acceptanceCriteria", "applicationContext"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "requirementId": { "type": "string", "pattern": "^[A-Z][A-Z0-9]+-[0-9]+$" },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "acceptanceCriteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "applicationContext": {
+      "type": "object",
+      "required": ["baseUrl", "interfaces", "knownConstraints"],
+      "properties": {
+        "baseUrl": { "type": "string" },
+        "interfaces": { "type": "array", "items": { "type": "string" } },
+        "knownConstraints": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

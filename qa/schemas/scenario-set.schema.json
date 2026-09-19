@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://taskflow.example/schemas/scenario-set.schema.json",
+  "title": "QA Agent Scenario Set",
+  "type": "object",
+  "required": ["schemaVersion", "sourceRequirement", "review", "scenarios"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "sourceRequirement": { "type": "string", "minLength": 1 },
+    "review": {
+      "type": "object",
+      "required": ["status", "notes"],
+      "properties": {
+        "status": { "enum": ["generated", "needs-review", "approved", "rejected"] },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["scenarioId", "title", "requirementReference", "preconditions", "testData", "steps", "expectedResult", "priority", "testType", "automationCandidate", "tags"],
+        "properties": {
+          "scenarioId": { "type": "string", "pattern": "^[A-Z][A-Z0-9]+-[0-9]+-S[0-9]+$" },
+          "title": { "type": "string", "minLength": 1 },
+          "requirementReference": { "type": "string", "minLength": 1 },
+          "preconditions": { "type": "array", "items": { "type": "string" } },
+          "testData": { "type": "object" },
+          "steps": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+          "expectedResult": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+          "priority": { "enum": ["critical", "high", "medium", "low"] },
+          "testType": { "enum": ["positive", "negative", "validation", "boundary", "persistence", "error-handling", "regression"] },
+          "automationCandidate": { "type": "boolean" },
+          "tags": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

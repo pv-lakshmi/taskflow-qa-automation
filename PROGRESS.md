@@ -2,7 +2,7 @@
 
 ## Current phase
 
-Phase C: QA Agent design and implementation.
+Phase D: Automation Agent design and implementation.
 
 ## Completed
 
@@ -13,6 +13,10 @@ Phase C: QA Agent design and implementation.
 - Added basic run and API documentation.
 - Phase B: QA onboarding and repository analysis.
 - Documented application/test inventory, testable interfaces, coverage gaps, requirement questions, test categories, and ownership boundaries.
+- Phase C: QA Agent design and implementation.
+- Added versioned JSON requirement and scenario contracts.
+- Added the `SCRUM-6` Jira-style requirement fixture and generated scenario set.
+- Added model-backed QA Agent instructions plus a credential-free local generator and validator.
 
 ## Application baseline: COMPLETE
 
@@ -29,11 +33,14 @@ From this point onward, treat TaskFlow as an inherited application. The primary 
 - `src/test/java/com/taskflow/TaskflowApplicationTests.java`: existing developer-owned API tests.
 - `README.md`: local run and API reference.
 - `TEST_STRATEGY.md`: Phase B repository analysis and coverage strategy.
+- `qa/agents/qa-agent.md`: QA Agent generation and review instructions.
+- `qa/agents/generate_scenarios.py`: offline scenario generator and validator.
+- `qa/scenarios/SCRUM-6.json`: generated, traceable scenario proposal.
 
 ## Blockers
 
-None for Phase B.
+None for Phase C. Generated scenarios require human review before automation.
 
 ## Next major action
 
-Define a versioned JSON scenario schema and create the first Jira-style requirement/scenario artifacts for the QA Agent.
+Select the API automation approach, map approved scenario metadata to executable tests, and add reusable test helpers without duplicating developer coverage.

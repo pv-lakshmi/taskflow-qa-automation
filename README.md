@@ -31,3 +31,5 @@ The developer-owned integration tests exercise the Task CRUD API, validation, pe
 | `DELETE` | `/tasks/{id}` | Delete a task |
 
 The project direction and QA handoff are tracked in [PROGRESS.md](PROGRESS.md), [ARCHITECTURE.md](ARCHITECTURE.md), [DECISIONS.md](DECISIONS.md), and [QA_AUTOMATION_PLAN.md](QA_AUTOMATION_PLAN.md).
+
+The QA Agent workflow is documented in [qa/README.md](qa/README.md). Its first requirement input is [qa/requirements/SCRUM-6.json](qa/requirements/SCRUM-6.json), and the generated proposal is [qa/scenarios/SCRUM-6.json](qa/scenarios/SCRUM-6.json).

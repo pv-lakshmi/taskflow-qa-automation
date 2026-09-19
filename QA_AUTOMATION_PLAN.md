@@ -17,6 +17,8 @@ Start with the TaskFlow REST API. UI automation is deferred until a UI exists.
 
 Each generated scenario should carry a stable scenario ID, Jira requirement reference, title, preconditions, test data, steps, expected result, priority, type, automation status, and tags.
 
+Phase C stores requirement inputs under `qa/requirements/` and scenario sets under `qa/scenarios/`. The contracts are versioned in `qa/schemas/requirement.schema.json` and `qa/schemas/scenario-set.schema.json`. The initial `SCRUM-6` proposal contains eight scenarios and remains explicitly `needs-review`.
+
 ## Execution strategy
 
 Selective smoke, validation, and negative checks should provide fast pull-request feedback. Broader API regression should run after merges and on a schedule once suite cost and stability are measured. Deployment checks should verify environment health and critical API paths. Destructive tests require an isolated or resettable environment.
@@ -33,4 +35,4 @@ The application team owns production behavior and fixes. QA automation owns scen
 
 ## Next design step
 
-Define a versioned JSON scenario schema and create a representative Jira-style requirement input before implementing the QA Agent.
+Select the API automation approach, map approved scenario metadata to executable tests, and add reusable test helpers without duplicating developer coverage.
